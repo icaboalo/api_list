@@ -31,7 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = inflater.inflate(R.layout.item_list, viewGroup, false);
-        MyViewHolder myViewHolder = new MyViewHolder(itemView, R.id.course_name, R.id.course_description, R.id.course_image, R.id.course_image_big);
+        MyViewHolder myViewHolder = new MyViewHolder(itemView, R.id.course_name, R.id.course_description, R.id.course_image, R.id.course_image_big, R.id.hero_id);
         return myViewHolder;
     }
 
@@ -41,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         myViewHolder.setCourseName(course.getCourseName());
         myViewHolder.setCourseDescription(course.getCourseDescription());
         myViewHolder.setCourseImage(course.getCourseImage());
+        myViewHolder.setCourseLevel("Level: "+course.getCourseLevel());
     }
 
     @Override
@@ -55,15 +56,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView courseName, courseDescription;
+        TextView courseName, courseDescription, courseLevel;
         ImageView courseImage, courseImageBig;
 
-        public MyViewHolder(View itemView, int courseName, int courseDescription, int courseImage, int courseImageBig) {
+        public MyViewHolder(View itemView, int courseName, int courseDescription, int courseImage, int courseImageBig, int courseLevel) {
             super(itemView);
             this.courseName = (TextView) itemView.findViewById(courseName);
             this.courseDescription = (TextView) itemView.findViewById(courseDescription);
             this.courseImage = (ImageView) itemView.findViewById(courseImage);
             this.courseImageBig = (ImageView) itemView.findViewById(courseImageBig);
+            this.courseLevel = (TextView) itemView.findViewById(courseLevel);
         }
 
         public void setCourseName(String courseName) {
@@ -77,6 +79,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void setCourseImage(String courseImageUrl) {
             Picasso.with(context).load(courseImageUrl).placeholder(R.mipmap.ic_launcher).into(courseImage);
             Picasso.with(context).load(courseImageUrl).placeholder(R.mipmap.ic_launcher).into(courseImageBig);
+        }
+
+        public void setCourseLevel(String courseLevel){
+            this.courseLevel.setText(courseLevel);
         }
     }
 }

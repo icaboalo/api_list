@@ -8,5 +8,5 @@
     android:orientation="vertical"
     android:minHeight="?attr/actionBarSize"
     android:elevation="4dp"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    app:popupTheme="@style/CustomToolbar"/>
 

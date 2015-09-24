@@ -6,5 +6,9 @@
         <item name="colorPrimary">@color/material_deep_teal_500</item>
         <item name="colorPrimaryDark">@color/material_blue_grey_900</item>
     </style>
+    <style name="CustomToolbar" parent="AppTheme">
+        <item name="android:textColorPrimary">#FFFFFF</item>
+
+    </style>
 
 </resources>

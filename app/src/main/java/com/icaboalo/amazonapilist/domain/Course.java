@@ -16,6 +16,9 @@ public class Course {
     @SerializedName("project_description")
     String courseDescription;
 
+    @SerializedName("level")
+    String courseLevel;
+
     public String getCourseName() {
         return courseName;
     }
@@ -28,15 +31,7 @@ public class Course {
         return courseDescription;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public void setCourseImage(String courseImage) {
-        this.courseImage = courseImage;
-    }
-
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
+    public String getCourseLevel() {
+        return courseLevel;
     }
 }
